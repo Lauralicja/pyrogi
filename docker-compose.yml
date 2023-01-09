@@ -4,6 +4,7 @@ services:
     image: pyrogi
     ports:
       - "8000"
+      
   generator:
     image: mocker
     environment:
