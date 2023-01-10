@@ -6,9 +6,16 @@ services:
       - "8000"
   generator:
     image: mocker
+    environment:
+      - REDIS_HOST=redis
     ports:
       - "8001"
 
+## REDIS CACHE
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - '6379:6379'
       
 ## KAFKA
   zookeeper:
