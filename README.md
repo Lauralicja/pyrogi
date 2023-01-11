@@ -17,6 +17,8 @@ The size of it may vary, this is **to be determined**.
 It’s a datalake. Pot with *water*, data *lake*, get it? <br>
 <sub><sup>_okay I’m gonna go now_</sup></sub>
 
+## Setup
+Once you clone the repo, start the program by using the start script with `./startup.sh` command.
 
 
 
