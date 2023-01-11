@@ -1,10 +1,12 @@
-from models.events import EventModel
-from models.user import UserModel
-import redis
-import threading
 import logging
 import random
 import secrets
+import threading
+
+import redis
+from models.events import EventModel
+from models.user import UserModel
+
 
 class Generator():
     """Generator class
