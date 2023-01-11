@@ -8,9 +8,27 @@ from pydantic import BaseModel, Field, validator
 
 fake_generator = Faker()
 
-
-
 class UserModel(BaseModel):
+    """pyndatic model for `User`
+    
+    Allows for a quick generation of various properties.
+    This model mocks the creation of user on a page.
+    The mocking itself is created with the use of Faker library.
+    
+    Optional parameters have a certain probability to be set as well,
+    providing the variety of customers, as some of them fill every field,
+    whereas some of them don't provide any information besides obligatory ones.
+    
+    Mandatory fields:
+    - user_id - an id of a user, set by UUID
+    - email - provided by the customer
+    - created_at - automatically created by a page
+    - date_of_birth - provided by a customer
+    
+
+    Args:
+        BaseModel: inheritance from pydantic BaseModel
+    """
     user_id: str = Field(default_factory = uuid4)
     email: str = Field(default_factory = fake_generator.free_email_domain)
     created_at: datetime = Field(default_factory = fake_generator.date)
