@@ -4,14 +4,7 @@ services:
     image: pyrogi
     ports:
       - "8000"
-      
-  generator:
-    image: mocker
-    environment:
-      - REDIS_HOST=redis
-    ports:
-      - "8001"
-
+    
 ## REDIS CACHE
   redis:
     image: redis:6.2-alpine
@@ -45,3 +38,17 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_TOOLS_LOG4J_LOGLEVEL: ERROR
+
+  generator:
+    image: mocker
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "8001"
+
+  proxy:
+    image: flasky
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "5000:5000"

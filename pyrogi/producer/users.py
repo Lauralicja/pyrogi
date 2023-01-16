@@ -1,8 +1,16 @@
 from kafka import KafkaProducer
 import json
+import requests
 
-producer = KafkaProducer(bootstrap_servers='localhost:29092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+PYROG_SIZE = 161879
 
-# add id to redis
-# add to topic
-# save
+
+producer = KafkaProducer(bootstrap_servers='localhost:29092', 
+                         client_id = "kafka-producer-users", 
+                         retries = 3,
+                         batch_size = PYROG_SIZE)
+
+
+
+# polling on events_proxy GET endpoint
+# if found send to topic

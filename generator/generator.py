@@ -49,6 +49,7 @@ class Generator():
             randomized_user = UserModel()
             users.append(randomized_user.json())
             self.cache.rpush("user_id", str(randomized_user.user_id))
+            self.cache.rpush("users", randomized_user.json())
             logging.debug(f"Generated USER with id: {randomized_user.user_id}")
         return users
         
@@ -60,10 +61,9 @@ class Generator():
             
         TODO: Sending the events via .requests
         """
-        events = []
         for _ in range(0, amount):
             randomized_event = EventModel(user_id = self.get_random_user_id())
-            events.append(randomized_event.json())
+            self.cache.rpush("events", randomized_event.json())
             logging.debug(f"Generated EVENT with id: {randomized_event.user_id}")
 
     def get_random_user_id(self):
