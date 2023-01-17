@@ -3,7 +3,8 @@ FROM python:3.9.16-bullseye
 WORKDIR /
 
 RUN pip install redis && \ 
-    pip install flask
+    pip install flask[async] && \ 
+    pip install aioflask
 
 
 COPY /generator/ /code/
