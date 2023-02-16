@@ -23,6 +23,6 @@ Once you clone the repo, start the program by using the start script with `./sta
 ## Architecture
 
 This graph will change a lot. Current version:
-![architecture](/doc/architecture.png)
+![architecture](/doc/architecture.jpg)
 
 
