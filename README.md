@@ -20,5 +20,9 @@ It’s a datalake. Pot with *water*, data *lake*, get it? <br>
 ## Setup
 Once you clone the repo, start the program by using the start script with `./startup.sh` command.
 
+## Architecture
+
+This graph will change a lot. Current version:
+![architecture](/doc/architecture.png)
 
 
