@@ -1,4 +1,5 @@
 docker compose down
-docker build . -f docker/pyrogi.Dockerfile -t pyrogi
-docker build . -f docker/generator.Dockerfile -t mocker
+docker build . -f docker/pyrogi.Dockerfile -t pyrogi --no-cache
+docker build . -f docker/generator.Dockerfile -t mocker --no-cache
+docker build . -f docker/flask.Dockerfile -t flasky --no-cache
 docker compose up -d
