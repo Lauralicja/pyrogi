@@ -1,13 +1,12 @@
-from kafka import KafkaProducer
+from base import Producer
 import json
+import requests
+import time
 
-PYROG_SIZE = 161879
 
-producer = KafkaProducer(bootstrap_servers='localhost:29092', 
-                         value_serializer=lambda user: json.dumps(user).encode('utf-8'), 
-                         client_id = "kafka-producer-events", 
-                         retries = 3,
-                         batch_size = PYROG_SIZE)
+TOPIC_NAME = "producer-events"
+URL = "http://proxys:5000/events"
 
-# polling on events_proxy GET endpoint
-# if found send to topic
+
+EventsProducer = Producer(topic_name=TOPIC_NAME, url=URL)
+EventsProducer.run()
