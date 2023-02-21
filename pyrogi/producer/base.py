@@ -1,7 +1,6 @@
 import json
-import time
-
 import logging
+import time
 
 import requests
 from kafka import KafkaProducer
@@ -10,8 +9,8 @@ from kafka.errors import KafkaTimeoutError
 logging.basicConfig(level=logging.ERROR)
 
 class Producer():
-    def __init__(self, topic_name, url):
-        self.bootstrap = "broker:29092"
+    def __init__(self, topic_name: str, url: str):
+        self.bootstrap = "broker:9092"
         self.api_version = (0, 11, 5)
         self.retries = 3
         self.pyrog_size = 161879

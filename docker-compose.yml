@@ -38,6 +38,8 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_TOOLS_LOG4J_LOGLEVEL: ERROR
 
+
+  # PYROGI
   generator:
     image: mocker
     container_name: generator
@@ -62,3 +64,11 @@ services:
       - "broker:broker"
     ports:
       - "8000:8000"
+
+  # consumer:
+  #   image: consumer
+  #   container_name: consumer
+  #   links:
+  #     - "broker:broker"
+  #   ports:
+  #     - "8002:8002"
