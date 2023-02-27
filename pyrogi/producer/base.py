@@ -20,8 +20,8 @@ class Producer():
         self.startup_producer()
         
     def startup_producer(self):
-        self.PRODUCER = KafkaProducer(bootstrap_servers=self.bootstrap, 
-                                value_serializer=lambda user: json.dumps(user).encode('utf-8'),
+        self.PRODUCER = KafkaProducer(bootstrap_servers=self.bootstrap,
+                                value_serializer=lambda event: json.dumps(event).encode('utf-8'),
                                 api_version=self.api_version,
                                 retries = self.retries,
                                 batch_size = self.pyrog_size)
@@ -31,7 +31,6 @@ class Producer():
             response = requests.get(self.url, timeout=3)
             if response.text:
                 try:    
-                    logging.debug(f"Sending message...")
                     self.PRODUCER.send(self.topic, response.text)
                     self.PRODUCER.flush()
                 except KafkaTimeoutError as err:
