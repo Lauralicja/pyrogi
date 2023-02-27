@@ -7,12 +7,12 @@ As a programmer, it is my sacred duty to write new projects and bring crazy idea
 pyrogi is a framework for moving raw data to datalake.
 
 
-## What is a pyrog?
+### What is a pyrog?
 
 One pyrog (pieróg/dumpling) is a unit of data that will be further transferred into a datalake.
 The size of it may vary, this is **to be determined**.
 
-## What is a pot with boiling water?
+### What is a pot with boiling water?
 
 It’s a datalake. Pot with *water*, data *lake*, get it? <br>
 <sub><sup>_okay I’m gonna go now_</sup></sub>
@@ -23,6 +23,6 @@ Once you clone the repo, start the program by using the start script with `./sta
 ## Architecture
 
 This graph will change a lot. Current version:
-![architecture](/doc/architecture.png)
+![architecture](/doc/architecture.jpg)
 
 
