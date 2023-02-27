@@ -6,7 +6,7 @@ import requests
 from kafka import KafkaProducer
 from kafka.errors import KafkaTimeoutError
 
-logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.INFO)
 
 class Producer():
     def __init__(self, topic_name: str, url: str):
@@ -31,6 +31,7 @@ class Producer():
             response = requests.get(self.url, timeout=3)
             if response.text:
                 try:    
+                    logging.info("Sending message...")
                     self.PRODUCER.send(self.topic, response.text)
                     self.PRODUCER.flush()
                 except KafkaTimeoutError as err:

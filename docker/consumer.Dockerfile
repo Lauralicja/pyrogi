@@ -4,6 +4,4 @@ WORKDIR /
 
 RUN pip install kafka-python 
 
-COPY /pyrogi/ /code/
-
-CMD ["python", "/code/consumer/events.py"]
+COPY /pyrogi/consumer /code/

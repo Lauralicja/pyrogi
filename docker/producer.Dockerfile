@@ -1,12 +1,9 @@
-FROM confluentinc/cp-kafka:7.3.0
+FROM python:3.9.16-bullseye
 
 WORKDIR /
 
-RUN pip install kafka-python
-
+RUN pip install kafka-python && \
+    pip install redis && \ 
+    pip install requests
 
 COPY /pyrogi/producer/ /code/
-
-CMD ["python", "/code/users.py"]
-
-#CMD ["flask", "--app", "/code/events_proxy.py", "--debug", "run", "--host:0.0.0.0"]

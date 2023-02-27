@@ -4,12 +4,12 @@ import logging
 
 from kafka.errors import KafkaTimeoutError
 
-logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.INFO)
 
 
 class Consumer():
      def __init__(self, topic_name: str) -> None:
-        self.bootstrap = "broker:29092"
+        self.bootstrap = "broker:9092"
         self.api_version = (0, 11, 5)
         self.retries = 3
         self.pyrog_size = 161879
@@ -26,7 +26,7 @@ class Consumer():
         while(True):
             try:
                 for message in self.CONSUMER:
-                   logging.debug(message)
+                   logging.info(f"Found a message! Offset: {message}")
             except KafkaTimeoutError as err:
                 logging.error(f"ERROR while sending a message to Producer:{err}")
             time.sleep(1)

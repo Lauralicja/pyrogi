@@ -63,10 +63,34 @@ services:
     ports:
       - "8000:8000"
 
-  # consumer:
-  #   image: consumer
-  #   container_name: consumer
-  #   links:
-  #     - "broker:broker"
-  #   ports:
-  #     - "8002:8002"
+  producer-users:
+    image: producer
+    container_name: producer-users
+    command: python code/users.py
+    links:
+      - "proxy:proxys"
+    ports:
+      - "8002:8002"
+
+  producer-events:
+    image: producer
+    container_name: producer-events
+    command: python code/events.py
+    links:
+      - "proxy:proxys"
+    ports:
+      - "8003:8003"
+
+  consumer-users:
+    image: consumer
+    container_name: consumer-users
+    command: python code/users.py
+    ports:
+      - "8004:8004"
+
+  consumer-events:
+    image: consumer
+    container_name: consumer-events
+    command: python code/events.py
+    ports:
+      - "8005:8005"
