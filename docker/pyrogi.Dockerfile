@@ -8,4 +8,4 @@ RUN pip install kafka-python && \
 
 COPY /pyrogi/ /code/
 
-CMD ["python", "/code/producer/users.py"]
+CMD ["python", "/code/main.py"]
