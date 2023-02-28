@@ -1,7 +1,7 @@
-from kafka import KafkaConsumer
-import time
 import logging
+import time
 
+from kafka import KafkaConsumer
 from kafka.errors import KafkaTimeoutError
 
 logging.basicConfig(level=logging.INFO)

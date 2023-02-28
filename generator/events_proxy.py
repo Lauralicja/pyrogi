@@ -1,5 +1,5 @@
-from flask import Flask, request
 import redis as Redis
+from flask import Flask, request
 
 proxy = Flask(__name__)
 proxy.env = "development"
