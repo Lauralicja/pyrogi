@@ -35,7 +35,15 @@ services:
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
         KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
         KAFKA_TOOLS_LOG4J_LOGLEVEL: ERROR
-
+    
+  # DATALAKE
+  datalake:
+    image: datalake
+    container_name: datalake
+    env_file:
+     - .env
+    ports:
+      - "8010"
 
 
   # PYROGI
